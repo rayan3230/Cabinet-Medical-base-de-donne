@@ -1,0 +1,88 @@
+-- Create the database
+CREATE DATABASE medical_cabinet;
+USE medical_cabinet;
+
+-- Create tables
+CREATE TABLE doctors (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    specialization VARCHAR(100),
+    email VARCHAR(100),
+    phone_number VARCHAR(20),
+    password VARCHAR(100) NOT NULL,
+    hourly_rate DECIMAL(10,2) DEFAULT 100.00
+);
+
+CREATE TABLE secretaries (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE patients (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20),
+    password VARCHAR(100)
+);
+
+CREATE TABLE appointments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    doctor_id INT,
+    appointment_date DATETIME,
+    status VARCHAR(20),
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (doctor_id) REFERENCES doctors(id)
+);
+
+CREATE TABLE patient_sheets (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    weight INT,
+    height INT,
+    medical_observations TEXT,
+    surgical_observations TEXT,
+    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE medicines (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    quantity INT,
+    price DECIMAL(10,2),
+    times_per_day INT
+);
+
+CREATE TABLE bills (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    appointment_id INT,
+    amount DECIMAL(10,2),
+    hours_spent DECIMAL(5,2) DEFAULT 1.00,
+    bill_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (appointment_id) REFERENCES appointments(id)
+);
+
+CREATE TABLE prescriptions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    medicine_id INT,
+    quantity INT,
+    times_per_day INT,
+    prescription_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    FOREIGN KEY (medicine_id) REFERENCES medicines(id)
+);
+
+-- Add some sample data
+INSERT INTO doctors (full_name, specialization, email, phone_number, password)
+VALUES ('Dr. John Smith', 'Cardiology', 'john.smith@email.com', '1234567890', 'password123');
+
+INSERT INTO secretaries (full_name, password)
+VALUES ('Sarah Johnson', 'password123');
+
+INSERT INTO patients (full_name, phone_number)
+VALUES ('rayan', '123456789');
