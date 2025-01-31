@@ -64,10 +64,7 @@ The project uses a relational database to store and manage data. The database sc
 - **Appointments**: Manages appointment scheduling between patients and doctors.
 - **Medical Records**: Contains detailed medical history and treatment records of patients.
 
-### ER Diagram
-Below is the Entity-Relationship (ER) diagram representing the database schema:
 
-![ER Diagram](path/to/er-diagram.png)
 
 ## Installation
 To set up the project locally, follow these steps:
@@ -80,24 +77,9 @@ To set up the project locally, follow these steps:
 
 2. **Set up the database**:
     - Install MySQL and create a database named `cabinet_medical`.
-    - Update the database configuration in `src/main/resources/application.properties`.
+    - Update the database configuration in `src/`.
 
-3. **Build the project**:
-    ```bash
-    mvn clean install
-    ```
 
-4. **Run the application**:
-    ```bash
-    mvn spring-boot:run
-    ```
-
-## Usage
-Once the application is running, you can access it via `http://localhost:8080`. The following functionalities are available:
-
-- **Admin**: Manage doctors, view reports, and oversee the entire system.
-- **Doctor**: View and manage patient records, appointments, and medical history.
-- **Receptionist**: Schedule appointments and manage patient information.
 
 ## Contributing
 We welcome contributions to enhance the project. To contribute, follow these steps:
@@ -108,8 +90,7 @@ We welcome contributions to enhance the project. To contribute, follow these ste
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a pull request.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 ## Contact
 For any inquiries or support, please contact us at support@cabinetmedical.com.
@@ -118,7 +99,7 @@ For any inquiries or support, please contact us at support@cabinetmedical.com.
 Below are some images representing the database schema and application interface:
 
 ### Database Schema Diagram
-![Database Schema](Cabinet-Medical-base-de-donne\cabinet\src\Website\images\database.png)
+![Database Schema](cabinet\src\Website\images\database.png)
 
 ### Application Interface
-![Application Interface](Cabinet-Medical-base-de-donne\cabinet\src\Website\images\dashboard.png)
+![Application Interface](cabinet\src\Website\images\dashboard.png)
