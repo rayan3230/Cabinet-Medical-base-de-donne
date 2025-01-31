@@ -118,7 +118,7 @@ For any inquiries or support, please contact us at support@cabinetmedical.com.
 Below are some images representing the database schema and application interface:
 
 ### Database Schema Diagram
-![Database Schema](path/to/database-schema.png)
+![Database Schema](Cabinet-Medical-base-de-donne\cabinet\src\Website\images\database.png)
 
 ### Application Interface
-![Application Interface](path/to/application-interface.png)
+![Application Interface](Cabinet-Medical-base-de-donne\cabinet\src\Website\images\dashboard.png)
