@@ -5,7 +5,7 @@ import java.sql.*;
 public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/medical_cabinet";
     private static final String USER = "root";
-    private static final String PASSWORD = "NewPassword";
+    private static final String PASSWORD = "123";
 
     public static Connection getConnection() {
         try {
